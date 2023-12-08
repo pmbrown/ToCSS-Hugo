@@ -1,0 +1,138 @@
+//  ------------------------------------------------------------
+//  Text
+//  ------------------------------------------------------------
+
+@if $enable-text {
+
+:where(.body, .lgr, .lg, .sm, .sml, .xs, .h1, .h2, .h3, .h4, .h5, .h6) {
+  font-size: var(--fs);
+  font-weight: var(--fw);
+  line-height: var(--lh);
+}
+
+.body {
+  --fs: var(--body);
+}
+
+.lgr {
+  --fs: var(--lgr);
+}
+
+.lg {
+  --fs: var(--lg);
+}
+
+.sm {
+  --fs: var(--sm);
+}
+
+.sml {
+  --fs: var(--sml);
+}
+
+.xs {
+  --fs: var(--xs);
+}
+
+.h1 {
+  --fs: var(--h1);
+}
+
+.h2 {
+  --fs: var(--h2);
+}
+
+.h3 {
+  --fs: var(--h3);
+}
+
+.h4 {
+  --fs: var(--h4);
+}
+
+.h5 {
+  --fs: var(--h5);
+}
+
+.h6 {
+  --fs: var(--h6);
+}
+
+.fw-normal, .fw-bold, .fw-100, .fw-200, .fw-300, .fw-400, .fw-500, .fw-600, .fw-700, .fw-800, .fw-900 {
+  font-weight: var(--fw);
+}
+
+.fw-normal {
+  --fw: normal;
+}
+
+.fw-bold {
+  --fw: bold;
+}
+
+.fw-100 {
+  --fw: 100;
+}
+
+.fw-200 {
+  --fw: 200;
+}
+
+.fw-300 {
+  --fw: 300;
+}
+
+.fw-400 {
+  --fw: 400;
+}
+
+.fw-500 {
+  --fw: 500;
+}
+
+.fw-600 {
+  --fw: 600;
+}
+
+.fw-700 {
+  --fw: 700;
+}
+
+.fw-800 {
+  --fw: 800;
+}
+
+.fw-900 {
+  --fw: 900;
+}
+
+.nolink {
+  text-decoration: none;
+}
+
+.txt-pretty {
+  text-wrap: pretty;
+}
+
+.txt-balance {
+  text-wrap: balance;
+}
+
+.txt-c {
+  text-align: center;
+}
+
+.txt-r {
+  text-align: right;
+}
+
+.nolist {
+  --pl: 0;
+}
+
+.nolist li::marker {
+  display: none; 
+  content: ""; 
+}
+
+} // END [if/text]

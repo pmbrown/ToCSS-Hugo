@@ -1,0 +1,43 @@
+//  ------------------------------------------------------------
+//  Menu - Base styles for responsive navigation menu
+//  Requires js_menu = 'true' in hugo.toml.
+//  Customise here or include styles where the menu is applied, 
+//  e.g. the _banner.scss or _nav.scss documents.
+//  ------------------------------------------------------------
+
+@if $enable-site-menu {
+
+[aria-controls="main-menu"] {
+  display: none;
+}
+
+// Breakpoints
+
+@media (max-width: #{$breakpoint-xl}) {
+
+}
+
+@media (max-width: #{$breakpoint-lg}) {
+
+}
+
+@media (max-width: #{$breakpoint-md}) {
+  [aria-controls="main-menu"] {
+    display: initial;
+  }
+  
+  [aria-expanded="false"][aria-controls] + #main-menu {
+    display: none;
+  }
+
+  [aria-expanded="true"][aria-controls] + #main-menu {
+    display: grid;
+    width: 100%;
+  }
+}
+
+@media (max-width: #{$breakpoint-sm}) {
+
+}
+
+} // END [@if]

@@ -1,0 +1,8 @@
+{{ if .Params.tags -}}
+<dl class="tags">
+<dt>Tags:</dt>
+{{- range (.GetTerms "tags") }}
+<dd><a href="{{ .Permalink }}">{{ .LinkTitle }}</a></dd>
+{{- end }}
+</dl>
+{{ end -}}

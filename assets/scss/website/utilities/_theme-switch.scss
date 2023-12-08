@@ -1,0 +1,42 @@
+//  ------------------------------------------------------------
+//  Theme-switch
+//  ------------------------------------------------------------
+
+@if $enable-site-theme-switch and $enable-theme-switch and $enable-icon-styles and $enable-icon-svg {
+
+#themes {
+  --fs: var(--sml);
+  --btn-bg: transparent;
+  --btn-hover: transparent;
+  --ico-va: -.179em;
+  --svg: var(--switch);
+  padding: 0;
+  border: none;
+}
+
+#themes:hover {
+  --color: var(--link-hover);
+}
+
+#themes:hover:after {
+  color: var(--text);
+}
+
+#themes:after {
+  margin-inline-start: .075rem;
+  word-spacing: -.15em;
+}
+
+:where(html) {
+  #themes:after {
+    content: "Dark off";
+  }
+}
+
+:where([data-prefers-dark=true]) {
+  #themes:after {
+    content: "Dark on";
+  }
+}
+
+} // END [@if]

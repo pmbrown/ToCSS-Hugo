@@ -1,0 +1,6 @@
+{{ range first 10 .Site.RegularPages }}
+<article>
+<h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+{{ .Summary }}
+</article>
+{{ end }}

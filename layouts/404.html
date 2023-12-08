@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="{{ .Site.LanguageCode | default "en-au" }}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>404 - Page not found | {{ .Site.Title | markdownify }}</title>
+<meta name="description" content="404 - Sorry, page not found.">
+<link rel="canonical" href="{{ .Permalink }}">
+{{- partial "head/theme.html" . }}
+<meta name="robots" content="noindex,nofollow">
+</head>
+
+<body>
+{{ partial "banner.html" . }}
+<main id="main">
+<h1>404 - Page not found</h1>
+<p>Sorry, can't find the page you're looking for.</p>
+<button onclick="history.back()" class="mb">Back to previous</button>
+</main>
+{{ partial "footer.html" . }}
+{{- partial "script.html" . -}}
+</body>
+</html>

@@ -1,0 +1,28 @@
+//  ------------------------------------------------------------
+//  Icons
+//  ------------------------------------------------------------
+// $blank:    url("data:image/svg+xml,<svg viewBox='0 0 16 16' fill='currentColor' xmlns='http://www.w3.org/2000/svg'><path d=''/></svg>");
+
+// Branding
+$logo:    url("data:image/svg+xml,<svg viewBox='0 0 192 192' fill='currentColor' xmlns='http://www.w3.org/2000/svg'><path d='m36 0c-36 0-36 36-36 36v120c0 36 36 36 36 36h120c36 0 36-36 36-36v-120c0-36-36-36-36-36h-120zm59.1 38.5c75.3 0 69.9 117 69.9 117s-26.9-63.6-69.9-63.6c-43 0-69.9 63.6-69.9 63.6s-5.38-117 69.9-117z'/></svg>");
+
+// Map
+$site-icons: (
+  "logo": $logo,
+) !default;
+
+@if $enable-site-icons {
+
+:where(html) { 
+  @each $site-icons, $value in $site-icons {
+    --#{$site-icons}: #{$value};
+  }
+}
+
+@each $site-icons, $value in $site-icons {
+.#{$site-icons} {
+  --svg: var(--#{$site-icons});        
+  }
+}
+
+} // END [@if]

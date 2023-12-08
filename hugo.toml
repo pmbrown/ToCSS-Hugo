@@ -1,0 +1,77 @@
+# ----------------------------------------------------------
+# Configuration
+# ----------------------------------------------------------
+  baseURL = 'https://pmbrown.net/'
+  languageCode = 'en'
+  title = 'Start Hugo'
+  copyright = '2023 Phil Brown'
+  publishDir = 'public'
+  enableInlineShortcodes = true
+  disableHugoGeneratorInject = true
+  disableKinds = ['rss', 'sitemap']
+
+# ----------------------------------------------------------
+# Parameters
+# - rss_feed requires 'rss' removed from disableKinds above. 
+# - theme_switch also needs to be enabled in style.scss.
+# ----------------------------------------------------------
+  [params]
+  
+  description = 'A ready-to-build Hugo static website template with customisable theme optimized CSS.'
+  author = 'Phil Brown'
+  email = "mailto:philbrown.webdev@gmail.com"
+  twitter = "https://twitter.com/philbrownweb"
+  mastodon = "https://techhub.social/@philbrown"
+  github = "https://github.com/pmbrown"
+  banner = "/banner.png"
+  social_meta = 'false'
+  rss_feed = 'false'  
+  theme_switch = 'true'
+  js_menu = 'false'
+  js_dialog = 'true'
+  css_standard = 'true'
+  css_minify = 'false'
+  css_inline = 'false'
+
+# ----------------------------------------------------------
+# Menus
+# ----------------------------------------------------------  
+  [[menu.main]]
+    identifier = 'home'
+    name = 'home'
+    url = '/'
+    weight = -1
+
+# ----------------------------------------------------------
+# Taxonomy
+# ----------------------------------------------------------
+  [taxonomies]
+    tags = 'tags'
+
+# ----------------------------------------------------------
+# Markup
+# - typographer disables curly quotes in summaries.
+# - unsafe allows writing HTML in MD documents.
+# - autoHeadingID disables TOC auto-IDs for MD headings.
+# - noClasses allows custom Chroma syntax highlighting.
+# ----------------------------------------------------------
+  [markup]
+  
+  [markup.goldmark]
+    [markup.goldmark.extensions]
+      typographer = false  
+                   
+    [markup.goldmark.renderer]
+      unsafe = true        
+      
+    [markup.goldmark.parser]
+      autoHeadingID = false
+      
+    [markup.highlight]
+      noClasses = false
+
+# ----------------------------------------------------------
+# Minify HTML
+# ----------------------------------------------------------
+  [minify]
+    minifyOutput = false

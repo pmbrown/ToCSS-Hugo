@@ -1,0 +1,87 @@
+//  ------------------------------------------------------------
+//  Borders
+//  ------------------------------------------------------------
+
+@if $enable-borders {
+
+:where(.bd, .bd-t, .bd-b, .bd-l, .bd-r, .bd-block, .bd-inline, .bd-child *) {
+  --bd-col: var(--surf-3);
+}
+
+:where(.bd) {
+  border: 1px solid var(--bd-col);
+  border-radius: var(--bd-radius);
+}
+
+:where(.bd-t) {
+  border-block-start: 1px solid var(--bd-col);
+}
+
+:where(.bd-b) {
+  border-block-end: 1px solid var(--bd-col);
+}
+
+:where(.bd-block) {
+  border-block: 1px solid var(--bd-col);
+}
+
+:where(.bd-l) {
+  border-inline-start: 1px solid var(--bd-col);
+}
+
+:where(.bd-r) {
+  border-inline-end: 1px solid var(--bd-col);
+}
+
+:where(.bd-inline) {
+  border-inline: 1px solid var(--bd-col);
+}
+
+:where(.bd-child *) {
+  border: 1px solid var(--bd-col);
+}
+
+
+.radius-xs {
+  --bd-radius: .125em;
+}
+
+.radius-sm {
+  --bd-radius: .25rem;
+}
+
+.radius-md {
+  --bd-radius: .5rem;
+}
+
+.radius-lg {
+  --bd-radius: .75rem;
+}
+
+.radius-xl {
+  --bd-radius: 1rem;
+}
+
+@if $enable-primary-colors {
+  .bd-blue {
+    --bd-col: var(--blue);
+  }
+  
+  .bd-red {
+    --bd-col: var(--red);
+  }
+  
+  .bd-green {
+    --bd-col: var(--green);
+  }
+  
+  .bd-orange {
+    --bd-col: var(--orange);
+  } 
+  
+  .bd-cyan {
+    --bd-col: var(--cyan);
+  } 
+} // END [if/primary-colors]
+
+} // END [if/borders]

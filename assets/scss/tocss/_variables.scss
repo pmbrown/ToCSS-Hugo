@@ -1,0 +1,116 @@
+//  ------------------------------------------------------------
+//  Variables
+//  ------------------------------------------------------------
+
+:where(html) {
+
+  @each $typography, $value in $typography {
+    --#{$typography}: #{$value};       
+  }
+  
+  @each $theme-colors, $value in $theme-colors {
+    --#{$theme-colors}: #{$value};       
+  }
+  
+  @if $enable-scheme-colors {
+    @each $light-scheme-colors, $value in $light-scheme-colors {
+      --#{$light-scheme-colors}: #{$value};       
+    }
+    
+    @each $dark-scheme-colors, $value in $dark-scheme-colors {
+      --#{$dark-scheme-colors}: #{$value};       
+    }
+  }
+  
+  @if $enable-forms-buttons {
+    @each $forms-buttons, $value in $forms-buttons {
+      --#{$forms-buttons}: #{$value};       
+    }
+  }  
+  
+  @if $enable-tables {
+    @each $tables, $value in $tables {
+      --#{$tables}: #{$value};       
+    }
+  }
+  
+  @if $enable-primary-colors {
+    @each $primary-colors, $value in $primary-colors {
+      --#{$primary-colors}: #{$value};       
+    }
+  }
+  
+  @if $enable-shadows {
+    @each $shadows, $value in $shadows {
+      --#{$shadows}: #{$value};       
+    }
+  }
+  
+  @if $enable-icon-styles {
+    --ico: var(--color);
+    --ico-va: -.115em;
+  }  
+}
+
+// Color-schemes
+
+:where(html) {
+  color-scheme: light;
+  @if $enable-scheme-colors {
+    @each $light-scheme, $value in $light-scheme {
+      --#{$light-scheme}: #{$value};       
+    }
+  }
+  @else {
+    @each $light-scheme-only, $value in $light-scheme-only {
+      --#{$light-scheme-only}: #{$value};       
+    }
+  }
+  @if $enable-theme-switch {
+    @if $enable-icon-styles {
+      @if $enable-icon-svg {
+        --switch-ico: var(--switch-off);
+      }
+    }
+  }
+}
+
+@if $enable-theme-switch {
+  :where([data-prefers-dark=true]) {
+    color-scheme: dark;
+    @if $enable-scheme-colors {
+      @each $dark-scheme, $value in $dark-scheme {
+        --#{$dark-scheme}: #{$value};       
+      }
+    }
+    @else {
+      @each $dark-scheme-only, $value in $dark-scheme-only {
+        --#{$dark-scheme-only}: #{$value};       
+      }
+    }
+    @if $enable-theme-switch {
+      @if $enable-icon-styles {
+        @if $enable-icon-svg {
+          --switch-ico: var(--switch-on);
+        }
+      }
+    }
+  } 
+}
+@else {
+  @media (prefers-color-scheme: dark) {
+    :where(html) {
+      color-scheme: dark;
+      @if $enable-scheme-colors {
+        @each $dark-scheme, $value in $dark-scheme {
+          --#{$dark-scheme}: #{$value};       
+        }
+      }
+      @else {
+        @each $dark-scheme-only, $value in $dark-scheme-only {
+          --#{$dark-scheme-only}: #{$value};       
+        }
+      }
+    }
+  }
+}

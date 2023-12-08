@@ -1,0 +1,197 @@
+//  ------------------------------------------------------------
+//  Dialog
+//  ------------------------------------------------------------
+
+@if $enable-dialogs {
+
+:where(html) {
+  --dialog-txt: var(--text);
+  --dialog-bg: var(--body-bg);
+  --dialog-header-txt: var(--text);
+  --dialog-header-bg: var(--surf-2);
+  --dialog-body-bg: var(--body-bg);
+  --dialog-body-pb: .75rem;
+  --dialog-body-pi: 1rem;
+  --dialog-border-color: var(--surf-3);
+  --dialog-border-width: 1px;
+  --dialog-border-radius: .125em; 
+  --dialog-top: 1rem;
+  --dialog-width: calc((100% - 6px) - 2em);
+  --dialog-max-width: 30rem;
+}
+
+dialog {
+  color: var(--dialog-txt);
+  margin: auto;
+  margin-block-start: var(--dialog-top);  
+  padding: 0;
+  width: var(--dialog-width);
+  max-width: var(--dialog-max-width); 
+  border-width: var(--dialog-border-width);
+  border-color: var(--dialog-border-color);
+  border-radius: var(--dialog-border-radius); 
+  background-color: var(--dialog-bg);
+}
+
+dialog header {
+  --ico: var(--dialog-header-txt); 
+  color: var(--dialog-header-txt);
+  position: sticky;
+  align-self: start;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-block-end: var(--dialog-border-width) solid var(--dialog-border-color);
+  background-color: var(--dialog-header-bg);
+  padding-block: .5rem;
+  padding-inline-start: 1rem;
+  padding-inline-end: .5rem;
+  border-start-start-radius: 0;
+}
+
+dialog header * {
+  --ico: var(--dialog-header-txt);
+  color: var(--dialog-header-txt);
+}
+
+dialog header *:is(h1, h2, h3, h4, h5, h6, p) {
+  --mb: 0;
+}
+
+// Heading block-padding will vary with font-family selection.
+dialog header *:is(h1, h2, h3, h4, h5, h6) {
+  padding-block-start: .2rem;
+  padding-block-end: .4rem;
+}
+
+// Header close button
+dialog header button {
+  --btn-bg: transparent;
+  --btn-hover: transparent;
+  border: none;
+  margin-inline-start: 1rem;
+}
+
+dialog header button:is(:focus, :active) {
+  outline: none;
+  box-shadow: none;
+}
+
+dialog header [data-close]:before {
+  --svg: var(--close);
+}
+
+// Internal wrapper
+.dialog-body {
+  padding-block: var(--dialog-body-pb);
+  padding-inline: var(--dialog-body-pi);
+  background-color: var(--dialog-body-bg);
+}
+
+.dialog-body :last-child {
+  --mb: 0;
+}
+
+// Backdrop
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  display: block;
+  content: "";
+}
+
+::backdrop {
+  background: #00000099;
+}
+
+} // END [if/dialogs]
+
+// Colors
+
+@mixin dialog-props {
+  --dialog-header-bg: var(--dialog-bg);
+  --dialog-border-color: var(--dialog-bg);
+}
+
+@if $enable-dialogs {
+
+@if $enable-scheme-colors and $enable-primary-colors {
+  .dialog-blue, .dialog-red, .dialog-green, .dialog-orange, .dialog-cyan, .dialog-dark, .dialog-light {
+    @include dialog-props;
+  }
+}
+@else {
+  @if $enable-primary-colors {
+    .dialog-blue, .dialog-red, .dialog-green, .dialog-orange, .dialog-cyan {
+      @include dialog-props;
+    }
+  }
+  @if $enable-scheme-colors {
+    .dialog-dark, .dialog-light {
+      @include dialog-props;
+    }
+  }
+}
+
+@if $enable-primary-colors {
+.dialog-blue {
+  --dialog-header-txt: #fff;
+  --dialog-bg: var(--blue);
+}
+
+.dialog-red { 
+  --dialog-header-txt: #fff;
+  --dialog-bg: var(--red);
+}
+
+.dialog-green {
+  --dialog-header-txt: #fff;
+  --dialog-bg: var(--green);
+}
+
+.dialog-orange {
+  --dialog-header-txt: #000;
+  --dialog-bg: var(--orange);
+}
+
+.dialog-cyan {
+  --dialog-header-txt: #000;
+  --dialog-bg: var(--cyan);
+}
+
+} // END [if/primary-colors]
+
+@if $enable-scheme-colors {
+
+.dialog-dark {
+  --dialog-header-txt: #fff;
+  --dialog-bg: var(--surf-3-dark);
+}
+
+.dialog-light {
+  --dialog-header-txt: #000;
+  --dialog-bg: var(--surf-2-light);
+}
+
+} // END [if/scheme-colors]
+
+} // END [if/dialogs]
+
+//  Dialog HTML example 
+//  Uses icon styles and SVG for header close button.
+
+//  <button data-dialog="#dialog" aria-controls="dialog">Dialog</button>
+//  <dialog id="dialog">
+//    <header>
+//      <h2>Dialog header</h2>
+//      <button class="ico close" data-close><span class="vis-hidden">Close</span></button>
+//    </header>
+//    <div class="dialog-body">
+//      <p>Dialog body content</p>
+//      <button data-close>Close</button>
+//    </div>
+//    <div class="backdrop" data-close></div>
+//  </dialog>

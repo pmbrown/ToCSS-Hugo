@@ -1,0 +1,171 @@
+//  ------------------------------------------------------------
+//  Cards
+//  ------------------------------------------------------------
+
+@if $enable-cards {
+
+:where(html) {
+  --card-inline: 1rem;
+  --card-pt: .75rem;
+  --card-pb: 1rem;
+  --card-border-color: var(--surf-2);
+  --card-border-width: 1px;
+  --card-radius: .125em;
+  --card-bg: var(--body-bg);
+  --card-hover: color-mix(in srgb, var(--surf-1) 50%, var(--body-bg));
+  --card-focus: .188rem solid var(--surf-3);
+  --card-title-txt: var(--text);
+  --card-title-bg: var(--surf-2);  
+  --card-title-block: .5rem;
+  --card-title-h-block: .75rem;  
+}
+
+.card-basic, .card-link {
+  position: relative;
+  max-inline-size: var(--card-max-width); 
+  padding-block-start: var(--card-pt);
+  padding-block-end: var(--card-pb);
+  padding-inline: var(--card-inline);
+  border: var(--card-border-width) solid var(--card-border-color);
+  border-radius: var(--card-radius);
+  background-color: var(--card-bg);
+}
+
+:where(.card-basic, .card-link) :last-child {
+  --mb: 0;
+}
+
+.card-link a:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.card-link :focus-visible {
+  outline: none;
+}
+
+.card-link:is(:focus-within, :hover) {
+  background-color: var(--card-hover);
+  cursor: pointer;
+}
+
+.card-link:focus-within {
+  outline: var(--card-focus);
+}
+
+// Cards with headers
+
+.card, .card-sm {
+  max-inline-size: var(--card-max-width);
+  background-color: var(--card-bg);
+}
+
+.card-sm {
+  --card-inline: .75rem;
+  --card-title-h-block: .65rem;  
+  --card-pt: .5rem;
+  --card-pb: .75rem;
+}
+
+.card-sm * {
+  font-size: var(--sml);
+}
+
+.card-sm .card-body *:is(p, ul, ol, dl):not(:last-child) { 
+  --mb: .5rem;
+}
+
+.card-title {
+--ico: var(--card-title-txt);
+  color: var(--card-title-txt);
+  display: block;
+  padding-block: var(--card-title-block);
+  padding-inline: var(--card-inline);
+  border-start-start-radius: var(--card-radius);
+  border-start-end-radius: var(--card-radius);
+  background-color: var(--card-title-bg);
+}
+
+.card-title:is(h1, h2, h3, h4, h5, h6, p) {
+  --mb: 0;
+}
+
+.card-title:is(h1, h2, h3, h4, h5, h6) {
+  padding-block: var(--card-title-h-block);
+}
+
+.card-body {
+  padding-block-start: var(--card-pt);
+  padding-block-end: var(--card-pb);
+  padding-inline: var(--card-inline);
+  border: var(--card-border-width) solid var(--card-border-color);
+  border-block-start: none;
+  border-end-start-radius: var(--card-radius);
+  border-end-end-radius: var(--card-radius);
+}
+
+.card-body :last-child {
+  --mb: 0;
+}
+
+.card-list {
+  --pl: 1rem;
+}
+
+// Card colors
+
+@if $enable-primary-colors {
+.card-blue {
+  --card-title-txt: #fff;
+  --card-title-bg: var(--blue);
+  --card-border-color: var(--card-title-bg);
+}
+
+.card-red {
+  --card-title-txt: #fff;
+  --card-title-bg: var(--red);
+  --card-border-color: var(--card-title-bg);
+}
+
+.card-green {
+  --card-title-txt: #fff;
+  --card-title-bg: var(--green);
+  --card-border-color: var(--card-title-bg);
+}
+
+.card-orange {
+  --card-title-txt: #000;
+  --card-title-bg: var(--orange);
+  --card-border-color: var(--card-title-bg);
+}
+
+.card-cyan {
+  --card-title-txt: #000;
+  --card-title-bg: var(--cyan);
+  --card-border-color: var(--card-title-bg);
+}
+
+} // END [if/primary-colors]
+
+@if $enable-scheme-colors {
+
+.card-dark {
+  --card-title-txt: #fff;
+  --card-title-bg: var(--surf-2-dark);
+  --card-border-color: var(--card-title-bg);
+}
+
+.card-light {
+  --card-title-txt: #000;
+  --card-title-bg: var(--surf-2-light);
+  --card-border-color: var(--card-title-bg);
+}
+
+} // END [if/scheme-colors]
+
+} // END [if/cards]

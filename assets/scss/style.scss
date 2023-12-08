@@ -1,0 +1,47 @@
+/*! ToCSS-Hugo v1.0. Copyright (c) 2023 Phil Brown. */
+
+// ToCSS styles and variables
+$enable-theme-switch:       true;
+$enable-forms-buttons:      true;
+$enable-tables:             true;
+$enable-scheme-colors:      true;
+$enable-primary-colors:     true;
+
+// ToCSS utilities
+$enable-backgrounds:        true;
+$enable-borders:            true;
+$enable-buttons:            true;
+$enable-cards:              true;
+$enable-dialogs:            true;
+$enable-display:            true;
+$enable-gaps:               true;
+$enable-grid:               true;
+$enable-icon-styles:        true;
+$enable-icon-svg:           true;
+$enable-images:             true;
+$enable-spacing:            true;
+$enable-text:               true;
+$enable-shadows:            true;
+
+// Website styles
+$enable-site-page:          true;
+$enable-site-banner:        false;
+$enable-site-nav:           false;
+$enable-site-main:          false;
+$enable-site-aside:         false;
+$enable-site-footer:        false;
+
+// Website utilities
+$enable-site-utility:       false;
+$enable-site-skip:          false;
+$enable-site-menu:          false;
+$enable-site-breadcrumbs:   false;
+$enable-site-pagination:    false;
+$enable-site-tags:          false;
+$enable-site-icons:         false;
+$enable-site-theme-switch:  true;
+$enable-site-syntax:        false;
+
+// Compile enabled ToCSS and website styles
+@import "tocss/tocss";
+@import "website/website";

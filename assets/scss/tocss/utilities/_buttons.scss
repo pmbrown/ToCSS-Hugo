@@ -1,0 +1,99 @@
+//  ------------------------------------------------------------
+//  Button utilities
+//  ------------------------------------------------------------
+
+@if $enable-buttons {
+
+:where(.btn-xs) {
+  --fs: var(--xs);
+  --btn-pb: .2rem;
+  --btn-pi: .35rem;
+}
+
+:where(.btn-sm) {
+  --fs: var(--sm);
+  --btn-pb: .2rem;
+  --btn-pi: .5rem;
+}
+
+:where(.btn-lg) {
+  --fs: var(--h6);
+  --btn-pb: .35rem;
+  --btn-pi: .75rem;
+}
+
+:where(.btn-xl) {
+  --fs: var(--h5);
+  --btn-pb: .45rem;
+  --btn-pi: .85rem;
+}
+
+@if $enable-primary-colors {
+
+[type=submit], .btn-blue {
+  --color: #fff;
+  --ico: var(--color);
+  --btn-bg: var(--blue);  
+  --btn-hover: hsl(var(--blue-hs) 38%);
+  --btn-border-color: var(--btn-bg);
+  --input-focus-color: hsl(var(--blue-hs) 50%);
+}
+
+[type=reset], .btn-red {
+  --color: #fff;
+  --ico: var(--color);
+  --btn-bg: var(--red);
+  --btn-hover: hsl(var(--red-hs) 43%);
+  --btn-border-color: var(--btn-bg);
+  --input-focus-color: hsl(var(--red-hs) 50%);
+}
+
+.btn-green {
+  --color: #fff;
+  --ico: var(--color);
+  --btn-bg: var(--green);  
+  --btn-hover: hsl(var(--green-hs) 30%);
+  --btn-border-color: var(--btn-bg);
+  --input-focus-color: hsl(var(--green-hs) 40%);
+}
+
+.btn-orange {
+  --color: #000;
+  --ico: var(--color);
+  --btn-bg: var(--orange);  
+  --btn-hover: hsl(var(--orange-hs) 75%);
+  --btn-border-color: var(--btn-bg);
+  --input-focus-color: hsl(var(--orange-hs) 80%);  
+}
+
+.btn-cyan {
+  --color: #000;
+  --ico: var(--color);
+  --btn-bg: var(--cyan);
+  --btn-hover: hsl(var(--cyan-hs) 42%);
+  --btn-border-color: var(--btn-bg);
+  --input-focus-color: hsl(var(--cyan-hs) 50%);
+}
+
+.btn-dark {
+  --color: #fff;
+  --ico: var(--color);
+  --btn-bg: var(--body-bg-dark);
+  --btn-hover: var(--surf-3-dark);
+  --btn-border-color: var(--surf-3-dark);
+  --input-focus-color: var(--surf-4-dark);
+}
+
+.btn-light {
+  --color: #000;
+  --ico: var(--color);
+  --btn-bg: var(--body-bg-light);
+  --btn-hover: var(--surf-2-light);
+  --btn-border-color: var(--surf-2);
+  --input-focus-color: var(--surf-3-light);
+}
+
+} // END [if/primary-colors]
+
+} // END [if/buttons]
+

@@ -1,0 +1,10 @@
+
+<nav>
+<button aria-expanded="false" aria-controls="main-menu">Menu</button>
+<ul id="main-menu">
+{{- $currentPage := . }}
+{{ range .Site.Menus.main }}{{- $url := .URL -}}{{- with .Page -}}{{- $url = .RelPermalink -}}{{- end -}}
+<li><a href="{{ .URL }}"{{ if $.IsMenuCurrent `main` . | or ($.HasMenuCurrent `main` .) | or (eq $.RelPermalink $url) }} aria-current="page"{{ end }}>{{ .Name }}</a></li>
+{{ end -}}
+</ul>
+</nav>

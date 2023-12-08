@@ -1,0 +1,10 @@
+{{- if eq .Site.Params.js_menu "true" -}}
+{{- with resources.Get "js/menu.js" -}}
+<script>{{ .Content | safeJS }}</script>
+{{- end }}
+{{ end -}}
+{{- if eq .Site.Params.js_dialog "true" -}}
+{{- with resources.Get "js/dialog.min.js" -}}
+<script>{{ .Content | safeJS }}</script>
+{{- end }}
+{{- end }}

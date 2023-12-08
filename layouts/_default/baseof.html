@@ -1,0 +1,11 @@
+<!doctype html>
+<html lang="{{ .Site.LanguageCode | default "en-au" }}">
+{{ partial "head/head.html" . }}
+<body>
+{{ partial "banner.html" . -}}
+{{- block "main" . }}
+{{- end }}
+{{- partial "footer.html" . -}}
+{{- partial "script.html" . -}}
+</body>
+</html>

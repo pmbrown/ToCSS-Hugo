@@ -1,0 +1,27 @@
+//  ------------------------------------------------------------
+//  Skip <a>
+//  ------------------------------------------------------------
+
+@if $enable-site-skip {
+
+.skip:not(:focus):not(:focus-within) {
+  position: absolute;
+  width: 1px;
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0,0,0,0);
+	white-space: nowrap;
+}
+
+.skip {
+  position: relative;
+  display: block;
+  margin-block-end: .5rem;
+}
+
+.skip:hover {
+  text-decoration: underline;
+}
+
+} // END [@if]

@@ -1,0 +1,237 @@
+//  ------------------------------------------------------------
+//  Grid
+//  ------------------------------------------------------------
+
+// $breakpoint-xl:     h.$breakpoint-xl;
+// $breakpoint-lg:     h.$breakpoint-lg;
+// $breakpoint-md:     h.$breakpoint-md;
+// $breakpoint-sm:     h.$breakpoint-sm;
+
+$fraction-grid: (
+  "g-1": 100%,
+  "g-2": repeat(2, 1fr),
+  "g-3": repeat(3, 1fr),
+  "g-4": repeat(4, 1fr),
+  "g-5": repeat(5, 1fr),
+  "g-6": repeat(6, 1fr),
+  "g-7": repeat(7, 1fr),
+  "g-8": repeat(8, 1fr),
+  "g-9": repeat(9, 1fr),
+  "g-10": repeat(10, 1fr),
+) !default;
+
+$gap-s0: 0;
+$gap-s1: .25rem;
+$gap-s2: .5rem;
+$gap-s3: 1rem;
+$gap-s4: 1.5rem;
+$gap-s5: 2rem;
+
+$gap: (
+  "gap-0": $gap-s0,
+  "gap-1": $gap-s1,
+  "gap-2": $gap-s2,
+  "gap-3": $gap-s3,
+  "gap-4": $gap-s4,
+  "gap-5": $gap-s5,
+) !default;
+
+$gap-col: (
+  "gap-c-0": $gap-s0,
+  "gap-c-1": $gap-s1,
+  "gap-c-2": $gap-s2,
+  "gap-c-3": $gap-s3,
+  "gap-c-4": $gap-s4,
+  "gap-c-5": $gap-s5,
+) !default;
+
+$gap-row: (
+  "gap-r-0": $gap-s0,
+  "gap-r-1": $gap-s1,
+  "gap-r-2": $gap-s2,
+  "gap-r-3": $gap-s3,
+  "gap-r-4": $gap-s4,
+  "gap-r-5": $gap-s5,
+) !default;
+
+@if $enable-grid {
+  :where(html) {  
+    @each $fraction-grid, $value in $fraction-grid {
+      --#{$fraction-grid}: #{$value};
+    }
+  }
+  
+  .grid, .grid-inline, .gallery {
+    grid-template-columns: var(--gtc);
+  }
+  
+  .grid, .gallery {
+    display: grid;
+  }
+  
+  .grid-inline {
+    display: inline-grid;
+  }
+  
+  .gallery {
+    --aspect-ratio: 16 / 9;
+    --mb: 1rem;
+  }
+  
+  .gallery img {
+    object-fit: cover;
+    aspect-ratio: var(--aspect-ratio);
+    height: 100%;
+  }
+
+  @each $fraction-grid, $value in $fraction-grid {
+  .#{$fraction-grid} {
+    --gtc: var(--#{$fraction-grid});        
+    }
+  }
+} // END [if/grid]
+
+@if $enable-gaps {
+  @each $gap, $value in $gap {
+  .#{$gap} {
+    gap: #{$value};        
+    }
+  }
+  
+  @each $gap-col, $value in $gap-col {
+  .#{$gap-col} {
+    column-gap: #{$value};        
+    }
+  }
+  
+  @each $gap-row, $value in $gap-row {
+  .#{$gap-row} {
+    row-gap: #{$value};        
+    }
+  }
+} // END [if/gaps]
+
+// Breakpoint - Extra large
+@media screen and (max-width: #{$breakpoint-xl}) {
+  @if $enable-grid {
+    @each $fraction-grid, $value in $fraction-grid {
+    .#{$fraction-grid}-lg {
+      --gtc: var(--#{$fraction-grid});        
+      }
+    }
+  } // END [if/grid]
+    
+  @if $enable-gaps {
+    @each $gap, $value in $gap {
+    .#{$gap}-lg {
+      gap: #{$value};        
+      }
+    }
+    
+    @each $gap-col, $value in $gap-col {
+    .#{$gap-col}-lg {
+      column-gap: #{$value};        
+      }
+    }
+    
+    @each $gap-row, $value in $gap-row {
+    .#{$gap-row}-lg {
+      row-gap: #{$value};        
+      }
+    }  
+  } // END [if/gaps]
+}
+
+// Breakpoint - Large
+@media screen and (max-width: #{$breakpoint-lg}) {
+  @if $enable-grid {
+    @each $fraction-grid, $value in $fraction-grid {
+    .#{$fraction-grid}-md {  
+      --gtc: var(--#{$fraction-grid});        
+      }
+    }
+  } // END [if/grid]
+  
+  @if $enable-gaps {
+    @each $gap, $value in $gap {
+    .#{$gap}-md {
+      gap: #{$value};        
+      }
+    }
+    
+    @each $gap-col, $value in $gap-col {
+    .#{$gap-col}-md {
+      column-gap: #{$value};        
+      }
+    }
+    
+    @each $gap-row, $value in $gap-row {
+    .#{$gap-row}-md {
+      row-gap: #{$value};        
+      }
+    }
+  } // END [if/gaps]
+}
+
+// Breakpoint - Medium
+@media screen and (max-width: #{$breakpoint-md}) {
+  @if $enable-grid {
+    @each $fraction-grid, $value in $fraction-grid {
+    .#{$fraction-grid}-sm {  
+      --gtc: var(--#{$fraction-grid});        
+      }
+    }
+  } // END [if/grid]
+  
+  @if $enable-gaps {
+    @each $gap, $value in $gap {
+    .#{$gap}-sm {
+      gap: #{$value};        
+      }
+    }
+    
+    @each $gap-col, $value in $gap-col {
+    .#{$gap-col}-sm {
+      column-gap: #{$value};        
+      }
+    }
+    
+    @each $gap-row, $value in $gap-row {
+    .#{$gap-row}-sm {
+      row-gap: #{$value};        
+      }
+    }
+  } // END [if/gaps]
+}
+
+// Breakpoint - Small
+@media screen and (max-width: #{$breakpoint-sm}) {
+  @if $enable-grid {
+    @each $fraction-grid, $value in $fraction-grid {
+    .#{$fraction-grid}-xs {  
+      --gtc: var(--#{$fraction-grid});        
+      }
+    }
+  } // END [if/grid]
+  
+  @if $enable-gaps {
+    @each $gap, $value in $gap {
+    .#{$gap}-xs {
+      gap: #{$value};        
+      }
+    }
+    
+    @each $gap-col, $value in $gap-col {
+    .#{$gap-col}-xs {
+      column-gap: #{$value};        
+      }
+    }
+    
+    @each $gap-row, $value in $gap-row {
+    .#{$gap-row}-xs {
+      row-gap: #{$value};        
+      }
+    }
+  } // END [if/gaps]
+}
+

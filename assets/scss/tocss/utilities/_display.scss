@@ -1,0 +1,96 @@
+//  ------------------------------------------------------------
+//  Display
+//  ------------------------------------------------------------
+
+@if $enable-display {
+
+.block {
+  display: block;
+}
+
+.block-inline {
+  display: inline-block;
+}
+
+.flex, .row, .column, .wrap {
+  display: flex;
+}
+
+.flex-inline {
+  display: inline-flex;
+}
+
+.row {
+  flex-direction: row;
+}
+
+.column {
+  flex-direction: column;
+}
+
+.wrap {
+  flex-wrap: wrap;
+}
+
+.center {
+  justify-content: center;
+}
+
+.between {
+  justify-content: space-between;
+}
+
+.align-c {
+  align-items: center;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.h-100 {
+  height: 100%;
+}
+
+.wrapper,.wrapper-xxl, .wrapper-xl, .wrapper-lg, .wrapper-md, .wrapper-sm, .wrapper-sml, .wrapper-xs, .wrapper-xxs {
+  --wrap-margin: auto;
+  max-inline-size: var(--wrap-size);
+  margin-inline: var(--wrap-margin);
+  padding-block: var(--wrap-pad-block);
+  padding-inline: var(--wrap-pad-inline);
+}
+
+.wrapper-xxl {
+  --wrap-size: 90rem;
+}
+
+.wrapper-xl {
+  --wrap-size: 75rem;
+}
+
+.wrapper-lg {
+  --wrap-size: 64rem;
+}
+
+.wrapper-md {
+  --wrap-size: 60rem;
+}
+
+.wrapper-sm {
+  --wrap-size: 50rem;
+}
+
+.wrapper-sml {
+  --wrap-size: 40rem;
+}
+
+.wrapper-xs {
+  --wrap-size: 30rem;
+}
+
+.wrapper-xxs {
+  --wrap-size: 20rem;
+}
+
+
+} // END [if/display]

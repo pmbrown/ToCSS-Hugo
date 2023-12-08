@@ -1,0 +1,18 @@
+{{- if eq .Site.Params.css_standard "true" }}
+{{- $options := dict "transpiler" "dartsass" "targetPath" "style.css" }}
+{{- with resources.Get "scss/style.scss" | toCSS $options }}
+<link rel="stylesheet" href="{{ .RelPermalink }}">
+{{- end }}
+{{- end }}
+{{- if eq .Site.Params.css_minify "true" }}
+{{- $options := dict "transpiler" "dartsass" "targetPath" "style.css" }}
+{{- with resources.Get "scss/style.scss" | toCSS $options | minify }}
+<link rel="stylesheet" href="{{ .RelPermalink }}">
+{{- end }}
+{{- end }}
+{{- if eq .Site.Params.css_inline "true" }}
+{{- $options := dict "transpiler" "dartsass" }}
+{{- with resources.Get "scss/style.scss" | toCSS $options | minify }}
+<style>{{ .Content | safeCSS }}</style>
+{{- end }}
+{{- end }}

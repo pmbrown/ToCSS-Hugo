@@ -1,0 +1,314 @@
+// ----------------------------------------------------------
+// Property values and maps for CSS variables.
+// ---------------------------------------------------------- 
+
+// ---------------------------------------------------------- 
+// Brand and theme base hue and saturation.
+// ----------------------------------------------------------  
+$brand-hs:  40 99% !default;
+$theme-hs:  0 0% !default;
+
+// ---------------------------------------------------------- 
+// Light color-scheme
+// ----------------------------------------------------------
+$text-light:        hsl(var(--theme-hs) 20%) !default;
+$link-light:        #1c3db5 !default;
+$link-hover-light:  color-mix(in srgb, var(--link) 60%, white) !default;
+$body-bg-light:     hsl(var(--theme-hs) 99%) !default;
+$surf-1-light:      hsl(var(--theme-hs) 94%) !default;
+$surf-2-light:      hsl(var(--theme-hs) 87%) !default;
+$surf-3-light:      hsl(var(--theme-hs) 81%) !default;
+$surf-4-light:      hsl(var(--theme-hs) 71%) !default;
+$brand-light:       hsl(var(--brand-hs) 42%) !default;
+
+// ---------------------------------------------------------- 
+// Dark color-scheme
+// ---------------------------------------------------------- 
+$text-dark:         hsl(var(--theme-hs) 99%) !default;
+$link-dark:         #9fbfdf !default;
+$link-hover-dark:   color-mix(in srgb, var(--link) 75%, white) !default;
+$body-bg-dark:      hsl(var(--theme-hs) 14%) !default;
+$surf-1-dark:       hsl(var(--theme-hs) 18%) !default;
+$surf-2-dark:       hsl(var(--theme-hs) 24%) !default;
+$surf-3-dark:       hsl(var(--theme-hs) 31%) !default;
+$surf-4-dark:       hsl(var(--theme-hs) 41%) !default;
+$brand-dark:        hsl(var(--brand-hs) 48%) !default;
+
+// ---------------------------------------------------------- 
+// Primary colors
+// ---------------------------------------------------------- 
+$blue:        #264d73 !default;
+$blue-hs:     210 50% !default;
+$blue-hsl:    var(--blue-hs) 30% !default;
+$red:         #9a1d1d !default;
+$red-hs:      0 68% !default;
+$red-hsl:     var(--red-hs) 36% !default;
+$green:       #2b6020 !default;
+$green-hs:    110 50% !default;
+$green-hsl:   var(--green-hs) 25% !default;
+$orange:      #ffc14d !default;
+$orange-hs:   39 100% !default;
+$orange-hsl:  var(--orange-hs) 65% !default;
+$cyan:        #00e6e6 !default;
+$cyan-hs:     180 100% !default;
+$cyan-hsl:    var(--cyan-hs) 45% !default;
+
+// ---------------------------------------------------------- 
+// Typography
+// ---------------------------------------------------------- 
+$font_family:   system-ui, -apple-system, Arial, Helvetica, sans-serif !default;
+$font_size:     clamp(100%, 40% + 0.666vw, 140%) !default;
+$body:          1rem !default;
+$lg:            1.1rem !default;
+$lgr:           1.25rem !default;
+$sm:            0.906rem !default;
+$sml:           0.813rem !default;
+$xs:            0.75rem !default;
+$h1:            2rem !default;
+$h2:            1.725rem !default;
+$h3:            1.5rem !default;
+$h4:            1.35rem !default;
+$h5:            1.2rem !default;
+$h6:            1.063rem !default;
+$lh-body:       1.5 !default;
+$lh-header:     1.2 !default;
+$lh-btn-forms:  1.4 !default;
+
+// ---------------------------------------------------------- 
+// Buttons and forms
+// ---------------------------------------------------------- 
+$btn-pb:              0.25rem !default;
+$btn-pi:              0.75rem !default;
+$btn-bg:              var(--surf-1) !default;
+$btn-hover:           var(--surf-2) !default;
+$btn-border:          1px !default;
+$btn-border-color:    var(--surf-2) !default;
+$btn-radius:          0.125em !default;
+$form-pb:             0.25rem !default;
+$form-pi:             0.5rem !default;
+$form-bg:             var(--body-bg) !default;
+$form-border:         1px !default;
+$form-border-color:   var(--surf-3) !default;
+$form-radius:         0.125em !default;
+$input-focus:         0 0 0 0.12rem !default;
+$input-focus-color:   var(--surf-3) !default;
+
+// ---------------------------------------------------------- 
+// Tables
+// ---------------------------------------------------------- 
+$table-thead-txt:     var(--text) !default;
+$table-thead-bg:      var(--surf-1) !default;
+$table-hover:         color-mix(in srgb, var(--table-thead-bg) 55%, var(--body-bg)) !default;
+$table-stripes:       color-mix(in srgb, var(--table-thead-bg) 35%, var(--body-bg)) !default;
+$table-border-color:  var(--surf-2) !default;
+$table-border-width:  0.0125rem !default;
+$table-pb:            0.25rem !default;
+$table-pi:            0.65rem !default;
+$table-mb:            1rem !default;
+
+// ---------------------------------------------------------- 
+// Box shadows
+// ---------------------------------------------------------- 
+$shadow-sm:   0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !default;
+$shadow:      0 0.25rem .75rem rgba(0, 0, 0, 0.15) !default;
+$shadow-lg:   0 0.5rem 1.25rem rgba(0, 0, 0, 0.15) !default;
+
+// ---------------------------------------------------------- 
+// Grid and page breakpoints (plus max-width if used)
+// ---------------------------------------------------------- 
+$max-page-width:  50rem !default;
+$breakpoint-xl:   1401px !default;
+$breakpoint-lg:   1025px !default;
+$breakpoint-md:   801px !default;
+$breakpoint-sm:   480px !default;
+
+// ---------------------------------------------------------- 
+// Property maps
+// ---------------------------------------------------------- 
+
+// ---------------------------------------------------------- 
+// Brand and theme base hue and saturation.
+// ----------------------------------------------------------  
+$theme-colors: (
+  "brand-hs": #{$brand-hs},
+  "theme-hs": #{$theme-hs},
+) !default;
+
+// ---------------------------------------------------------- 
+// Light color-scheme
+// ----------------------------------------------------------
+
+$light-scheme-colors: (
+  "text-light": #{$text-light},
+  "link-light": #{$link-light},
+  "link-hover-light": #{$link-hover-light},
+  "body-bg-light": #{$body-bg-light},
+  "surf-1-light": #{$surf-1-light},
+  "surf-2-light": #{$surf-2-light},
+  "surf-3-light": #{$surf-3-light},
+  "surf-4-light": #{$surf-4-light},
+  "brand-light": #{$brand-light},
+) !default;
+
+$light-scheme: (
+  "text": var(--text-light),
+  "link": var(--link-light),
+  "link-hover": var(--link-hover-light),
+  "body-bg": var(--body-bg-light),
+  "surf-1": var(--surf-1-light),
+  "surf-2": var(--surf-2-light),
+  "surf-3": var(--surf-3-light),
+  "surf-4": var(--surf-4-light),
+  "mono-txt": #000,
+  "mono-bg": #fff,
+  "brand": var(--brand-light),
+) !default;
+
+$light-scheme-only: (
+  "text": #{$text-light},
+  "link": #{$link-light},
+  "link-hover": #{$link-hover-light},
+  "body-bg": #{$body-bg-light},
+  "surf-1": #{$surf-1-light},
+  "surf-2": #{$surf-2-light},
+  "surf-3": #{$surf-3-light},
+  "surf-4": #{$surf-4-light},
+  "brand": #{$brand-light},
+) !default;
+
+// ---------------------------------------------------------- 
+// Dark color-scheme
+// ---------------------------------------------------------- 
+
+$dark-scheme-colors: (
+  "text-dark": #{$text-dark},
+  "link-dark": #{$link-dark},
+  "link-hover-dark": #{$link-hover-dark},
+  "body-bg-dark": #{$body-bg-dark},
+  "surf-1-dark": #{$surf-1-dark},
+  "surf-2-dark": #{$surf-2-dark},
+  "surf-3-dark": #{$surf-3-dark},
+  "surf-4-dark": #{$surf-4-dark},
+  "brand-dark": #{$brand-dark},
+) !default;
+
+$dark-scheme: (
+  "text": var(--text-dark),
+  "link": var(--link-dark),
+  "link-hover": var(--link-hover-dark),
+  "body-bg": var(--body-bg-dark),
+  "surf-1": var(--surf-1-dark),
+  "surf-2": var(--surf-2-dark),
+  "surf-3": var(--surf-3-dark),
+  "surf-4": var(--surf-4-dark),
+  "mono-txt": #fff,
+  "mono-bg": #000,
+  "brand": var(--brand-dark),
+) !default;
+
+$dark-scheme-only: (
+  "text": #{$text-dark},
+  "link": #{$link-dark},
+  "link-hover": #{$link-hover-dark},
+  "body-bg": #{$body-bg-dark},
+  "surf-1": #{$surf-1-dark},
+  "surf-2": #{$surf-2-dark},
+  "surf-3": #{$surf-3-dark},
+  "surf-4": #{$surf-4-dark},
+  "brand": #{$brand-dark},
+) !default;
+
+// ---------------------------------------------------------- 
+// Primary colors
+// ---------------------------------------------------------- 
+
+$primary-colors: (
+  "blue": #{$blue},
+  "blue-hs": #{$blue-hs},
+  "blue-hsl": #{$blue-hsl},
+  "red": #{$red},
+  "red-hs": #{$red-hs},
+  "red-hsl": #{$red-hsl},
+  "green": #{$green},
+  "green-hs": #{$green-hs},
+  "green-hsl": #{$green-hsl},
+  "orange": #{$orange},
+  "orange-hs": #{$orange-hs},
+  "orange-hsl": #{$orange-hsl},  
+  "cyan": #{$cyan},
+  "cyan-hs": #{$cyan-hs},
+  "cyan-hsl": #{$cyan-hsl},
+) !default;
+
+// ---------------------------------------------------------- 
+// Typography
+// ---------------------------------------------------------- 
+
+$typography: (
+  "color": var(--text),
+  "font": #{$font-family},
+  "fs": #{$font-size},
+  "body": #{$body},
+  "lg": #{$lg},
+  "lgr": #{$lgr},
+  "sm": #{$sm},
+  "sml": #{$sml},
+  "xs": #{$xs},
+  "h1": #{$h1},
+  "h2": #{$h2},
+  "h3": #{$h3},
+  "h4": #{$h4},
+  "h5": #{$h5},
+  "h6": #{$h6},
+  "lh-body": #{$lh-body},
+  "lh-header": #{$lh-header},
+  "lh-btn-forms": #{$lh-btn-forms},
+) !default;
+
+// ---------------------------------------------------------- 
+// Buttons and forms
+// ---------------------------------------------------------- 
+
+$forms-buttons: (
+  "btn-pb": #{$btn-pb},
+  "btn-pi": #{$btn-pi},
+  "btn-bg": #{$btn-bg},
+  "btn-hover": #{$btn-hover},
+  "btn-border": #{$btn-border},
+  "btn-border-color": #{$btn-border-color},
+  "btn-radius": #{$btn-radius},
+  "form-pb": #{$form-pb},
+  "form-pi": #{$form-pi},
+  "form-bg": #{$form-bg},
+  "form-border": #{$form-border},
+  "form-border-color": #{$form-border-color},
+  "form-radius": #{$form-radius},
+  "input-focus": #{$input-focus},
+  "input-focus-color": #{$input-focus-color},
+) !default;
+
+// ---------------------------------------------------------- 
+// Tables
+// ---------------------------------------------------------- 
+
+$tables: (
+  "table-thead-txt": #{$table-thead-txt},
+  "table-thead-bg": #{$table-thead-bg},
+  "table-hover": #{$table-hover},
+  "table-stripes": #{$table-stripes},
+  "table-border-color": #{$table-border-color},
+  "table-border-width": #{$table-border-width},
+  "table-pb": #{$table-pb},
+  "table-pi": #{$table-pi},
+  "table-mb": #{$table-mb},
+) !default;
+
+// ---------------------------------------------------------- 
+// Box shadows
+// ---------------------------------------------------------- 
+
+$shadows: (
+  "shadow": #{$shadow},
+  "shadow-sm": #{$shadow-sm},
+  "shadow-lg": #{$shadow-lg},
+) !default;

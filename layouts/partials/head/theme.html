@@ -1,0 +1,11 @@
+{{- if eq .Site.Params.theme_switch "true" }}
+{{- with resources.Get "js/theme.min.js" }}
+<script>{{ .Content | safeJS }}</script>
+{{- end }}
+{{- end }}
+{{- partial "head/style.html" . -}}
+<link rel="icon" href="{{ "favicon.svg" | relURL }}" type="image/svg+xml">
+<link rel="apple-touch-icon" href="{{ "icon.png" | relURL }}" sizes="180x180" type="image/png">
+<link rel="mask-icon" href="{{ "icon.svg" | relURL }}" color="#f59f00">
+<link rel="manifest" href="{{ "manifest.json" | relURL }}" crossorigin="use-credentials">
+<meta name="theme-color" content="#333333">

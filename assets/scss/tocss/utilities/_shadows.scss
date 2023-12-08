@@ -1,0 +1,19 @@
+//  ------------------------------------------------------------
+//  Shadows
+//  ------------------------------------------------------------
+
+@if $enable-shadows {
+  
+  .shadow {
+    box-shadow: var(--shadow);
+  }
+  
+  .shadow-sm {
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .shadow-lg {
+    box-shadow: var(--shadow-lg);
+  }
+  
+} // END [@if]

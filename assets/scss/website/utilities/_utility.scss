@@ -1,0 +1,25 @@
+//  ------------------------------------------------------------
+//  Utility
+//  ------------------------------------------------------------
+
+@if $enable-site-utility {
+
+// Breakpoints
+
+@media (max-width: #{$breakpoint-xl}) {
+
+}
+
+@media (max-width: #{$breakpoint-lg}) {
+
+}
+
+@media (max-width: #{$breakpoint-md}) {
+
+}
+
+@media (max-width: #{$breakpoint-sm}) {
+
+}
+
+} // END [@if]

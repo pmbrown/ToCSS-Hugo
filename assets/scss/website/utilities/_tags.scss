@@ -1,0 +1,27 @@
+//  ------------------------------------------------------------
+//  Tags <ul> and <dl>
+//  ------------------------------------------------------------
+
+@if $enable-site-tags {
+
+.tags {
+  --pl: 0;
+}
+
+.tags * {
+  display: inline-block;
+}
+
+.tags dd {
+  margin-inline-start: 0;
+}
+
+.tags *:is(dd, li):after {
+  content: ", ";
+}
+
+.tags *:is(dd, li):last-child:after {
+  content: initial;
+}
+
+} // END [@if]

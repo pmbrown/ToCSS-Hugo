@@ -1,22 +1,32 @@
-//  ------------------------------------------------------------
-//  ToCSS
-//  ------------------------------------------------------------
+/*! ToCSS v1.1. Copyright (c) 2023 Phil Brown. Licensed under MIT (https://github.com/pmbrown/ToCSS/blob/main/LICENSE) */
 
-// Core
+// Styles and variables
+$enable-theme-switch:     true;
+$enable-forms-buttons:    true;
+$enable-tables:           true;
+$enable-scheme-colors:    true;
+$enable-primary-colors:   true;
+
+// Utilities
+$enable-accordions:       true;
+$enable-backgrounds:      true;
+$enable-borders:          true;
+$enable-buttons:          true;
+$enable-cards:            true;
+$enable-dialogs:          true;
+$enable-display:          true;
+$enable-spacing:          true;
+$enable-gaps:             true;
+$enable-grid:             true;
+$enable-icon-styles:      true;
+$enable-icon-svg:         true;
+$enable-images:           true;
+$enable-shadows:          true;
+$enable-text:             true;
+$enable-theme-button:     true;
+
+// Build enabled
 @import "properties";
 @import "variables";
 @import "styles";
-
-// Utilities
-@import "utilities/backgrounds";
-@import "utilities/borders";
-@import "utilities/buttons";
-@import "utilities/display";
-@import "utilities/spacing";
-@import "utilities/text";
-@import "utilities/shadows";
-@import "utilities/images";
-@import "utilities/cards";
-@import "utilities/dialogs";
-@import "utilities/icons";
-@import "utilities/grid";
+@import "utilities";

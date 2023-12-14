@@ -1,4 +1,4 @@
-{{- if eq .Site.Params.theme_switch "true" }}
+{{- if eq .Site.Params.js_theme "true" }}
 {{- with resources.Get "js/theme.min.js" }}
 <script>{{ .Content | safeJS }}</script>
 {{- end }}

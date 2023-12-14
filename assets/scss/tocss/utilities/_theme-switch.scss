@@ -1,0 +1,91 @@
+//  ------------------------------------------------------------
+//  Theme switch button
+//  Requires theme.js or theme.min.js (assets/js) loaded prior 
+//  to the style sheet in the head of the HTML.
+//  See _svg.scss for Sass icon variables used below.
+//  ------------------------------------------------------------
+
+$enable-celestial:     false;
+$enable-radio:         true;
+
+@if $enable-theme-switch and $enable-theme-button {
+
+@if $enable-celestial {
+  :where(html) {
+    --switch-off: #{$sun};
+    --switch-on: #{$moon};
+  }
+}
+
+@if $enable-radio {
+  :where(html) {
+    --switch-off: #{$radio-off};
+    --switch-on: #{$radio-on};
+  }
+}
+
+#themes {
+  --ico: var(--color);
+  --svg: var(--switch-ico);
+}
+
+// @extend %icon-mask chains all icon styles together, minimises code.
+// @include icon-mask can be used to duplicate icon styles, adds code.
+// Alternatively, if icon-styles are enabled [class="ico"] can be added 
+// to the button element and the [:before] style can be disabled.
+#themes:before {
+  @extend %icon-mask;
+}
+
+@if $enable-celestial {
+  #themes {
+    --fs: var(--sml);
+    --btn-pb: .25rem;
+    --btn-pi: .35rem;
+    --ico-va: -.12em;
+    padding: var(--btn-pb) var(--btn-pi);
+  }
+} // END [if/celestial]
+
+@if $enable-radio {
+  #themes {
+    --fs: var(--sml);
+    --btn-bg: transparent;
+    --btn-hover: transparent;
+    --ico: var(--color);
+    --svg: var(--switch-ico);
+    --ico-va: -.16em;
+    padding: 0;
+    border: none;
+    background-color: var(--btn-bg);
+  }
+  
+  #themes:hover {
+    --color: var(--link-hover);
+  }
+  
+  #themes:hover:after {
+    color: var(--text);
+  }
+  
+  #themes:after {
+    margin-inline-start: .075rem;
+    word-spacing: -.15em;
+  }
+  
+  :where(html) {
+    #themes:after {
+      content: "Dark off";
+    }
+  }
+  
+  :where([data-prefers-dark=true]) {
+    #themes:after {
+      content: "Dark on";
+    }
+  }  
+} // END [if/radio]
+
+
+
+} // END [if/theme-button]

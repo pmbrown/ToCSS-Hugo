@@ -7,4 +7,9 @@
 {{- with resources.Get "js/dialog.min.js" -}}
 <script>{{ .Content | safeJS }}</script>
 {{- end }}
+{{ end }}
+{{- if eq .Site.Params.js_accordion "true" -}}
+{{- with resources.Get "js/accordion.min.js" -}}
+<script>{{ .Content | safeJS }}</script>
+{{- end }}
 {{- end }}

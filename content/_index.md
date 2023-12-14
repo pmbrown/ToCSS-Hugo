@@ -1,13 +1,8 @@
 ---
-layout: 
-series: 
-weight: 
-title: "Theme optimized styles, variables and utilities for website design."
+title: "Hello world!"
 slug: 'Home'
 date: '2023-09-18T17:32:03+10:00'
-author: Phil Brown
+author: Site author
 draft: false
-tags: 
 description: 
 ---
-

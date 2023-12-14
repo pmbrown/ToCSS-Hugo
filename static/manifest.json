@@ -1,8 +1,8 @@
 {
-  "lang": "en-au",
-  "name": "StaticStart",
-  "short_name": "StaticStart",
-  "description": "Color-schemed Hugo starter kit",
+  "lang": "en",
+  "name": "Site name",
+  "short_name": "Site name",
+  "description": "Brief description of site name",
   "icons": [
     {
       "src": "icon.png",

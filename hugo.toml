@@ -1,10 +1,10 @@
 # ----------------------------------------------------------
 # Configuration
 # ----------------------------------------------------------
-  baseURL = 'https://pmbrown.net/'
+  baseURL = 'https://www.example.com/'
   languageCode = 'en'
-  title = 'Start Hugo'
-  copyright = '2023 Phil Brown'
+  title = 'Site name'
+  copyright = '2023 Copyright information'
   publishDir = 'public'
   enableInlineShortcodes = true
   disableHugoGeneratorInject = true
@@ -13,22 +13,23 @@
 # ----------------------------------------------------------
 # Parameters
 # - rss_feed requires 'rss' removed from disableKinds above. 
-# - theme_switch also needs to be enabled in style.scss.
+# - js_theme requires theme-switch enabled in tocss.scss.
 # ----------------------------------------------------------
   [params]
   
-  description = 'A ready-to-build Hugo static website template with customisable theme optimized CSS.'
-  author = 'Phil Brown'
-  email = "mailto:philbrown.webdev@gmail.com"
-  twitter = "https://twitter.com/philbrownweb"
-  mastodon = "https://techhub.social/@philbrown"
-  github = "https://github.com/pmbrown"
-  banner = "/banner.png"
+  description = 'Description metadata for search results best capped at 160 characters for good output.'
+  author = 'Site author'
+  email = "mailto:site-author@example.com"
+  twitter = "https://twitter.com/example-com"
+  mastodon = "https://mastodon.social/@example-com"
+  github = "https://github.com/example-com"
+  banner = "/img/banner.png"
   social_meta = 'false'
   rss_feed = 'false'  
-  theme_switch = 'true'
+  js_theme = 'true'
   js_menu = 'false'
   js_dialog = 'true'
+  js_accordion = 'false'
   css_standard = 'true'
   css_minify = 'false'
   css_inline = 'false'
@@ -44,6 +45,7 @@
 
 # ----------------------------------------------------------
 # Taxonomy
+# - disables default categories configuration
 # ----------------------------------------------------------
   [taxonomies]
     tags = 'tags'
@@ -75,3 +77,16 @@
 # ----------------------------------------------------------
   [minify]
     minifyOutput = false
+
+# ----------------------------------------------------------
+# Module mounts
+# ----------------------------------------------------------
+  [module]
+  
+  [[module.mounts]]
+    source = 'static'
+    target = 'static'  
+    
+  [[module.mounts]]
+    source = 'assets/img'
+    target = 'static/img'

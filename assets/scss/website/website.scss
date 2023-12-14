@@ -2,6 +2,25 @@
 //  Website styles and utilities
 //  ------------------------------------------------------------
 
+// Styles
+$enable-site-page:          true;
+$enable-site-banner:        false;
+$enable-site-nav:           false;
+$enable-site-main:          false;
+$enable-site-aside:         false;
+$enable-site-footer:        false;
+
+// Utilities
+$enable-site-utility:       false;
+$enable-site-skip:          false;
+$enable-site-menu:          false;
+$enable-site-breadcrumbs:   false;
+$enable-site-pagination:    false;
+$enable-site-tags:          false;
+$enable-site-icons:         false;
+$enable-site-syntax:        false;
+
+// Import and compile
 @import "page";
 @import "banner";
 @import "nav";
@@ -15,5 +34,4 @@
 @import "utilities/pagination";
 @import "utilities/tags";
 @import "utilities/icons";
-@import "utilities/theme-switch";
 @import "utilities/syntax";

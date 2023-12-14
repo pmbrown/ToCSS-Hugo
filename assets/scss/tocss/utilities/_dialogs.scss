@@ -18,6 +18,12 @@
   --dialog-top: 1rem;
   --dialog-width: calc((100% - 6px) - 2em);
   --dialog-max-width: 30rem;
+  @if $enable-icon-svg {
+    --dialog-close: var(--close);
+  }
+  @else {
+    --dialog-close: #{$close};
+  }
 }
 
 dialog {
@@ -66,20 +72,25 @@ dialog header *:is(h1, h2, h3, h4, h5, h6) {
 }
 
 // Header close button
-dialog header button {
+header [data-close] {
+  --svg: var(--dialog-close);
   --btn-bg: transparent;
   --btn-hover: transparent;
   border: none;
   margin-inline-start: 1rem;
 }
 
-dialog header button:is(:focus, :active) {
+header [data-close]:is(:focus, :active) {
   outline: none;
   box-shadow: none;
 }
 
-dialog header [data-close]:before {
-  --svg: var(--close);
+// @extend %icon-mask chains all icon styles together to minimise code.
+// @include icon-mask can be used to duplicate icon styles.
+// Alternatively, if icon-styles are enabled [class="ico"] can be added 
+// to the button element and the [:before] style can be disabled.
+header [data-close]:before {
+  @extend %icon-mask;
 }
 
 // Internal wrapper
@@ -180,14 +191,13 @@ dialog header [data-close]:before {
 
 } // END [if/dialogs]
 
-//  Dialog HTML example 
-//  Uses icon styles and SVG for header close button.
+//  Dialog HTML example
 
 //  <button data-dialog="#dialog" aria-controls="dialog">Dialog</button>
 //  <dialog id="dialog">
 //    <header>
 //      <h2>Dialog header</h2>
-//      <button class="ico close" data-close><span class="vis-hidden">Close</span></button>
+//      <button data-close><span class="vis-hidden">Close</span></button>
 //    </header>
 //    <div class="dialog-body">
 //      <p>Dialog body content</p>

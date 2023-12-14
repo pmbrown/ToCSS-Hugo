@@ -1,0 +1,210 @@
+//  ------------------------------------------------------------
+//  Details disclosure element accordions
+//  See HTML examples below for usage.
+//  Firefox currently requires accordion.js (assets/js).
+//  ------------------------------------------------------------
+
+@if $enable-accordions {
+
+:where(html) {
+  --summary-text: var(--text);
+  --summary-bg: var(--surf-1);
+  --summary-ico: var(--summary-text);
+  --summary-block: .5rem;
+  --details-block: .75rem;
+  --details-inline: .75rem;
+  --details-border-color: var(--surf-2);
+  --details-border-width: 1px;
+  --details-border-radius: .125em; 
+  --details-max-width: initial;
+  @if $enable-icon-svg {
+    --details-open: var(--arrowdown);
+    --details-closed: var(--arrowup);
+  }
+  @else {
+    --details-open: #{$arrowdown};
+    --details-closed: #{$arrowup};
+  }
+}
+
+.details, .accordion {
+  max-inline-size: var(--details-max-width);
+}
+
+.accordion details {
+  margin-block-end: 0;
+}
+
+:where(.details, .accordion) summary {
+  --ico: var(--summary-ico);
+  color: var(--summary-text);
+  font-weight: 600;
+  display: flex;
+  padding-block: var(--summary-block);
+  padding-inline: var(--details-inline);
+  border: var(--details-border-width) solid var(--details-border-color);
+  border-radius: var(--details-border-radius);
+  background-color: var(--summary-bg);
+}
+
+.accordion summary {
+  border-radius: 0; 
+}
+
+.accordion details:not(:first-child) summary {
+  border-block-start: none;
+}
+
+.accordion details:first-child summary {
+  border-start-start-radius: var(--details-border-radius);
+  border-start-end-radius: var(--details-border-radius);
+}
+
+.accordion details:last-child summary {
+  border-end-start-radius: var(--details-border-radius);
+  border-end-end-radius: var(--details-border-radius);
+}
+
+:where(.details[open], .accordion [open]) summary {
+  margin-block-end: 0;
+  border-block-end: var(--details-border-width) solid var(--details-border-color);
+  border-end-start-radius: 0;
+  border-end-end-radius: 0;
+}
+
+.accordion details[open]:last-child summary {
+  border-end-start-radius: 0;
+  border-end-end-radius: 0;
+}
+
+// Body
+.details-body {
+  padding-block: var(--details-block);
+  padding-inline: var(--details-inline);
+  border: var(--details-border-width) solid var(--details-border-color);
+  border-block-start: none;
+  border-radius: var(--details-border-radius);
+  border-start-start-radius: 0;
+  border-start-end-radius: 0;
+}
+
+.accordion .details-body {
+  border-radius: 0;
+}
+
+.accordion details:last-child[open] .details-body {
+  border-end-start-radius: var(--details-border-radius);
+  border-end-end-radius: var(--details-border-radius);
+}
+
+.details-body :last-child {
+  --mb: 0;
+}
+
+// Open and close icons.
+// @extend %icon-mask chains all icon styles together to minimise code.
+// @include icon-mask can be used to duplicate icon styles.
+.details summary:after, .accordion summary:after {
+  --ico: var(--summary-ico);
+  --svg: var(--details-open);
+  @extend %icon-mask;
+  margin-inline-start: auto;
+  margin-block-start: calc(var(--fs) / 4);
+}
+
+.details[open] summary:after, .accordion details[open] summary:after {
+  --svg: var(--details-closed);
+}
+
+@if $enable-primary-colors {
+
+.details-blue {
+  --summary-text: #fff;
+  --summary-ico: #fff;
+  --summary-bg: var(--blue);
+  --details-border-color: hsl(var(--blue-hs) 38%);
+}
+
+.details-red {
+  --summary-text: #fff;
+  --summary-ico: #fff;
+  --summary-bg: var(--red);
+  --details-border-color: hsl(var(--red-hs) 42%);
+}
+
+.details-green {
+  --summary-text: #fff;
+  --summary-ico: #fff;
+  --summary-bg: var(--green);
+  --details-border-color: hsl(var(--green-hs) 30%);
+}
+
+.details-orange {
+  --summary-text: #000;
+  --summary-ico: #000;
+  --summary-bg: var(--orange);
+  --details-border-color: hsl(var(--orange-hs) 48%);
+}
+
+.details-cyan {
+  --summary-text: #000;
+  --summary-ico: #000;
+  --summary-bg: var(--cyan);
+  --details-border-color: hsl(var(--cyan-hs) 35%);
+}
+
+} // END [@if/primary-colors]
+
+@if $enable-scheme-colors {
+
+.details-light {
+  --summary-text: #000;
+  --summary-ico: #000;
+  --summary-bg: var(--surf-1-light);
+  --details-border-color: var(--surf-3-light);
+}
+
+.details-dark {
+  --summary-text: #fff;
+  --summary-ico: #fff;
+  --summary-bg: var(--surf-1-dark);
+  --details-border-color: var(--surf-3-dark);
+}
+
+} // END [@if/scheme-colors]
+
+} // END [@if/details]
+
+// ------------------------------------
+// Accordion example using [.accordion]
+// ------------------------------------
+// <div role="group" class="accordion">
+// <details name="accordion-1" open>
+// <summary>Details plus</summary>
+// <div class="details-body">
+// <p>Body text</p>
+// </div>
+// </details>
+// <details name="accordion-1">
+// <summary>Details plus</summary>
+// <div class="details-body">
+// <p>Body text</p>
+// </div>
+// </details>
+// <details name="accordion-1">
+// <summary>Details plus</summary>
+// <div class="details-body">
+// <p>Body text</p>
+// </div>
+// </details>
+// </div>
+
+// -----------------------------------
+// Standalone example using [.details]
+// -----------------------------------
+// <details class="details">
+// <summary>Details arrow</summary>
+// <div class="details-body">
+// <p>Body text</p>
+// </div>
+// </details>

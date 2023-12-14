@@ -46,7 +46,7 @@
     }
   }
   
-  @if $enable-icon-styles {
+  @if $enable-icon-styles or $enable-theme-button or $enable-accordions or $enable-dialogs or $enable-icon-svg {
     --ico: var(--color);
     --ico-va: -.115em;
   }  
@@ -66,12 +66,8 @@
       --#{$light-scheme-only}: #{$value};       
     }
   }
-  @if $enable-theme-switch {
-    @if $enable-icon-styles {
-      @if $enable-icon-svg {
-        --switch-ico: var(--switch-off);
-      }
-    }
+  @if $enable-theme-switch and $enable-theme-button {
+    --switch-ico: var(--switch-off);
   }
 }
 
@@ -88,13 +84,9 @@
         --#{$dark-scheme-only}: #{$value};       
       }
     }
-    @if $enable-theme-switch {
-      @if $enable-icon-styles {
-        @if $enable-icon-svg {
-          --switch-ico: var(--switch-on);
-        }
-      }
-    }
+    @if $enable-theme-button {
+      --switch-ico: var(--switch-on);
+    }    
   } 
 }
 @else {

@@ -4,12 +4,12 @@
 
 @if $enable-images {
 
-.auto, .passport, .landscape, .landscape-sm, .landscape-xs, .portrait {
+.auto, .passport, .landscape, .landscape-sm, .landscape-xs, .portrait, .portrait-sm {
   display: grid;
   grid-template-columns: var(--gtc);
 }
 
-:where(.auto, .passport, .landscape, .landscape-sm, .landscape-xs, .portrait) img {
+:where(.auto, .passport, .landscape, .landscape-sm, .landscape-xs, .portrait, .portrait-sm) img {
   object-fit: cover;
   aspect-ratio: var(--aspect-ratio);
   height: 100%;
@@ -37,6 +37,10 @@
 
 .portrait {
   --aspect-ratio: 4 / 5;
+}
+
+.portrait-sm {
+  --aspect-ratio: 3 / 4;
 }
 
 } // END [if/images]

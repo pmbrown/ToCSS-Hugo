@@ -6,10 +6,6 @@
 
 // Breakpoints
 
-@media (max-width: #{$breakpoint-xl}) {
-
-}
-
 @media (max-width: #{$breakpoint-lg}) {
 
 }
@@ -19,6 +15,10 @@
 }
 
 @media (max-width: #{$breakpoint-sm}) {
+
+}
+
+@media (max-width: #{$breakpoint-xs}) {
 
 }
 

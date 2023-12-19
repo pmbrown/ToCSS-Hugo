@@ -2,22 +2,17 @@
 //  Grid
 //  ------------------------------------------------------------
 
-// $breakpoint-xl:     h.$breakpoint-xl;
-// $breakpoint-lg:     h.$breakpoint-lg;
-// $breakpoint-md:     h.$breakpoint-md;
-// $breakpoint-sm:     h.$breakpoint-sm;
-
 $fraction-grid: (
-  "g-1": 100%,
-  "g-2": repeat(2, 1fr),
-  "g-3": repeat(3, 1fr),
-  "g-4": repeat(4, 1fr),
-  "g-5": repeat(5, 1fr),
-  "g-6": repeat(6, 1fr),
-  "g-7": repeat(7, 1fr),
-  "g-8": repeat(8, 1fr),
-  "g-9": repeat(9, 1fr),
-  "g-10": repeat(10, 1fr),
+  "g-1": minmax(0, 1fr),
+  "g-2": repeat(2, minmax(0, 1fr)),
+  "g-3": repeat(3, minmax(0, 1fr)),
+  "g-4": repeat(4, minmax(0, 1fr)),
+  "g-5": repeat(5, minmax(0, 1fr)),
+  "g-6": repeat(6, minmax(0, 1fr)),
+  "g-7": repeat(7, minmax(0, 1fr)),
+  "g-8": repeat(8, minmax(0, 1fr)),
+  "g-9": repeat(9, minmax(0, 1fr)),
+  "g-10": repeat(10, minmax(0, 1fr)),
 ) !default;
 
 $gap-s0: 0;
@@ -112,7 +107,38 @@ $gap-row: (
 } // END [if/gaps]
 
 // Breakpoint - Extra large
-@media screen and (max-width: #{$breakpoint-xl}) {
+@media (max-width: #{$breakpoint-xl}) {
+  @if $enable-grid {
+    @each $fraction-grid, $value in $fraction-grid {
+    .#{$fraction-grid}-xl {
+      --gtc: var(--#{$fraction-grid});        
+      }
+    }
+  } // END [if/grid]
+    
+  @if $enable-gaps {
+    @each $gap, $value in $gap {
+    .#{$gap}-xl {
+      gap: #{$value};        
+      }
+    }
+    
+    @each $gap-col, $value in $gap-col {
+    .#{$gap-col}-xl {
+      column-gap: #{$value};        
+      }
+    }
+    
+    @each $gap-row, $value in $gap-row {
+    .#{$gap-row}-xl {
+      row-gap: #{$value};        
+      }
+    }  
+  } // END [if/gaps]
+}
+
+// Breakpoint - Large
+@media (max-width: #{$breakpoint-lg}) {
   @if $enable-grid {
     @each $fraction-grid, $value in $fraction-grid {
     .#{$fraction-grid}-lg {
@@ -142,8 +168,8 @@ $gap-row: (
   } // END [if/gaps]
 }
 
-// Breakpoint - Large
-@media screen and (max-width: #{$breakpoint-lg}) {
+// Breakpoint - Medium
+@media (max-width: #{$breakpoint-md}) {
   @if $enable-grid {
     @each $fraction-grid, $value in $fraction-grid {
     .#{$fraction-grid}-md {  
@@ -173,8 +199,8 @@ $gap-row: (
   } // END [if/gaps]
 }
 
-// Breakpoint - Medium
-@media screen and (max-width: #{$breakpoint-md}) {
+// Breakpoint - Small
+@media (max-width: #{$breakpoint-sm}) {
   @if $enable-grid {
     @each $fraction-grid, $value in $fraction-grid {
     .#{$fraction-grid}-sm {  
@@ -204,8 +230,8 @@ $gap-row: (
   } // END [if/gaps]
 }
 
-// Breakpoint - Small
-@media screen and (max-width: #{$breakpoint-sm}) {
+// Breakpoint - Extra small
+@media (max-width: #{$breakpoint-xs}) {
   @if $enable-grid {
     @each $fraction-grid, $value in $fraction-grid {
     .#{$fraction-grid}-xs {  
@@ -235,3 +261,33 @@ $gap-row: (
   } // END [if/gaps]
 }
 
+// Breakpoint - Extra, extra small
+@media (max-width: #{$breakpoint-xxs}) {
+  @if $enable-grid {
+    @each $fraction-grid, $value in $fraction-grid {
+    .#{$fraction-grid}-xxs {  
+      --gtc: var(--#{$fraction-grid});        
+      }
+    }
+  } // END [if/grid]
+  
+  @if $enable-gaps {
+    @each $gap, $value in $gap {
+    .#{$gap}-xxs {
+      gap: #{$value};        
+      }
+    }
+    
+    @each $gap-col, $value in $gap-col {
+    .#{$gap-col}-xxs {
+      column-gap: #{$value};        
+      }
+    }
+    
+    @each $gap-row, $value in $gap-row {
+    .#{$gap-row}-xxs {
+      row-gap: #{$value};        
+      }
+    }
+  } // END [if/gaps]
+}

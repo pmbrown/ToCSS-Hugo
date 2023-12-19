@@ -12,6 +12,10 @@ body {
 
 // Breakpoints
 
+@media (max-width: #{$breakpoint-xl}) {
+
+}
+
 @media (max-width: #{$breakpoint-lg}) {
 
 }
@@ -25,6 +29,10 @@ body {
 }
 
 @media (max-width: #{$breakpoint-xs}) {
+
+}
+
+@media (max-width: #{$breakpoint-xxs}) {
 
 }
 

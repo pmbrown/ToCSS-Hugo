@@ -114,13 +114,14 @@ $shadow:      0 0.25rem .75rem rgba(0, 0, 0, 0.15) !default;
 $shadow-lg:   0 0.5rem 1.25rem rgba(0, 0, 0, 0.15) !default;
 
 // ---------------------------------------------------------- 
-// Grid and page breakpoints (plus max-width if used)
+// Grid breakpoints
 // ---------------------------------------------------------- 
-$max-page-width:  50rem !default;
-$breakpoint-xl:   1401px !default;
-$breakpoint-lg:   1025px !default;
-$breakpoint-md:   801px !default;
-$breakpoint-sm:   480px !default;
+$breakpoint-xl:   1601px !default;
+$breakpoint-lg:   1401px !default;
+$breakpoint-md:   1025px !default;
+$breakpoint-sm:   801px !default;
+$breakpoint-xs:   481px !default;
+$breakpoint-xxs:  361px !default;
 
 // ---------------------------------------------------------- 
 // Property maps

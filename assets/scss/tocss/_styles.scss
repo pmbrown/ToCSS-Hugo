@@ -300,7 +300,6 @@ a > :where(code) {
   border-radius: var(--form-radius);
 }
 
-
 :where(input, button, select, optgroup, textarea, [role=button]):disabled,
 :where([aria-disabled=true]) {
   opacity: 0.65;
@@ -475,10 +474,10 @@ a > :where(code) {
 
 } // END [if/enable-tables]
 
-// Table overflow wrapper example:
-//  <div role="region" aria-labelledby="Caption1" tabindex="0">
-//    <table class="table-combo">
-//    <caption id="Caption1">Table caption</caption>
-//      table-data
-//    </table>
-//  </div>
+//  Table overflow wrapper example:
+//    <div role="region" aria-labelledby="Caption1" tabindex="0">
+//      <table class="table-combo">
+//      <caption id="Caption1">Table caption</caption>
+//        <!-- table-data -->
+//      </table>
+//    </div>

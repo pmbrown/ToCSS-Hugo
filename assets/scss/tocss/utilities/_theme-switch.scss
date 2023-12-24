@@ -1,8 +1,11 @@
 //  ------------------------------------------------------------
-//  Theme switch button
-//  Requires theme.js or theme.min.js (assets/js) loaded prior 
-//  to the style sheet in the head of the HTML.
-//  See _svg.scss for Sass icon variables used below.
+//  Theme switch button (enable in toscss.scss)
+//  - $enable-theme-switch: true
+//  - $enable-theme-button: true
+//  - include inline or link to theme.js/theme.min.js (assets/js)
+//    before the style sheet in <head> of document.
+//  See utilities/_svg.scss for Sass icon variables.
+//  See utilities/_icons.scss for Sass @extend.
 //  ------------------------------------------------------------
 
 $enable-celestial:     false;
@@ -75,13 +78,13 @@ $enable-radio:         true;
   
   :where(html) {
     #themes:after {
-      content: "Dark off";
+      content: "Dark off" / "off";
     }
   }
   
   :where([data-prefers-dark=true]) {
     #themes:after {
-      content: "Dark on";
+      content: "Dark on" / "on";
     }
   }  
 } // END [if/radio]
